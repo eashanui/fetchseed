@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "preview": "npx serve out",
+    "deploy:pages": "npx wrangler pages deploy out --project-name fetchseed",
     "lint": "eslint .",
     "format": "prettier --write ."
   },

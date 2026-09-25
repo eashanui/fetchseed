@@ -18,14 +18,16 @@ This site is configured as a static Next.js export. In Cloudflare Pages, connect
 - **Build command:** `npm run build`
 - **Build output directory:** `out`
 - **Node.js version:** `22`
+- **Deploy command, if Cloudflare requires one:** `npm run deploy:pages`
 
 Or deploy from the terminal with Wrangler:
 
 ```sh
 npm install
-npm run build
-npx wrangler pages deploy out --project-name fetchseed
+npm run deploy:pages
 ```
+
+Do not use `npx wrangler deploy` for this project. That command deploys a Workers/OpenNext application and expects `.next/standalone`; this project is a static export and deploys the `out/` directory through Cloudflare Pages.
 
 The contact form currently confirms submissions in the browser only. Connect it to a form endpoint or a Cloudflare Worker before relying on it for real inquiries.
 
