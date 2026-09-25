@@ -118,7 +118,7 @@ export function Home() {
         </div>
         <motion.div
           style={calm ? {} : { y: markY, opacity: markOpacity }}
-          className="absolute inset-0 flex items-center justify-center"
+          className="hero-particle-layer absolute inset-0 flex items-center justify-center"
         >
           <ParticleMark className="h-[86vmin] w-[86vmin] md:h-[98vmin] md:w-[98vmin]" />
         </motion.div>
@@ -326,7 +326,7 @@ export function Home() {
                     <span className="absolute left-0 top-0 flex size-12 items-center justify-center rounded-full bg-background text-sm font-semibold ring-1 ring-border">
                       {s.n}
                     </span>
-                    <h3 className="display mt-6 text-xl md:text-2xl">{s.t}</h3>
+                    <h3 className="display mt-6 max-w-[18ch] text-xl md:text-2xl">{s.t}</h3>
                     <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.d}</p>
                   </li>
                 </Reveal>

@@ -290,13 +290,35 @@
   }
 
   .process-line::before {
-    bottom: 1.5rem;
-    top: 1.5rem;
+    display: none;
+  }
+
+  .process-step::after {
+    content: "";
+    position: absolute;
     left: 1.5rem;
-    right: auto;
+    top: 3rem;
+    bottom: -3rem;
     width: 1px;
-    height: auto;
     background: linear-gradient(var(--ember), var(--green));
+    opacity: 0.55;
+  }
+
+  .process-step:last-child::after {
+    display: none;
+  }
+
+  .eyebrow {
+    letter-spacing: 0.22em;
+  }
+
+  .hero-dotfield {
+    background-size: 15px 15px;
+  }
+
+  .hero-particle-layer {
+    transform: none !important;
+    opacity: 1 !important;
   }
 }
 

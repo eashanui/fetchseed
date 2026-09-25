@@ -27,7 +27,10 @@ export function ParticleMark({ className = "" }: { className?: string }) {
   const [calm, setCalm] = useState(false);
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    if (
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      window.matchMedia("(pointer: coarse)").matches
+    ) {
       setCalm(true);
       return;
     }

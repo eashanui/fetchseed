@@ -25,6 +25,13 @@ export function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter,border-color] duration-700 ${
@@ -65,6 +72,7 @@ export function Nav() {
           onClick={() => setOpen((v) => !v)}
           className="flex size-10 flex-col items-center justify-center gap-1.5 md:hidden"
           aria-label="Toggle menu"
+          aria-expanded={open}
         >
           <span
             className={`h-px w-6 bg-paper transition-transform duration-300 ${open ? "translate-y-[3.5px] rotate-45" : ""}`}
@@ -76,7 +84,7 @@ export function Nav() {
       </nav>
 
       {open && (
-        <div className="border-t border-paper/10 bg-midnight/95 px-6 pb-8 pt-4 backdrop-blur-xl md:hidden">
+        <div className="max-h-[calc(100dvh-5rem)] overflow-y-auto border-t border-paper/10 bg-midnight/95 px-6 pb-8 pt-4 backdrop-blur-xl md:hidden">
           {links.map((l) => (
             <Link
               key={l.to}
