@@ -11,14 +11,14 @@ npm install
 npm run dev
 ```
 
-## Deploy to Cloudflare Pages
+## Deploy to Cloudflare
 
-This site is configured as a static Next.js export. In Cloudflare Pages, connect the repository and use:
+This site is configured as a static Next.js export and can deploy as a Cloudflare static-assets Worker. Use these settings in the Cloudflare Workers build configuration:
 
 - **Build command:** `npm run build`
 - **Build output directory:** `out`
 - **Node.js version:** `22`
-- **Deploy command, if Cloudflare requires one:** `npm run deploy:pages`
+- **Deploy command:** `npm run deploy`
 
 Or deploy from the terminal with Wrangler:
 
@@ -27,7 +27,7 @@ npm install
 npm run deploy:pages
 ```
 
-Do not use `npx wrangler deploy` for this project. That command deploys a Workers/OpenNext application and expects `.next/standalone`; this project is a static export and deploys the `out/` directory through Cloudflare Pages.
+The repository includes `wrangler.jsonc`, which tells Wrangler to deploy the generated `out/` directory as static assets. Do not enable the automatic OpenNext migration; this project does not need a server runtime.
 
 The contact form currently confirms submissions in the browser only. Connect it to a form endpoint or a Cloudflare Worker before relying on it for real inquiries.
 
